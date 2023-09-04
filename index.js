@@ -1,50 +1,48 @@
 const items = [
-    { 
-        
-        name : 'calculator',
-        description : 'this is project involves using javascript, html and css to creat a web calculator. That is able to run the web',
-        img : './images/calculator.jpeg' ,
-        toggleBtn: 'toggleBtn()',
-        detail : `copy and add to each item`,
-        class : 'hidepopup',
-        skills : ['html', 'css','javascript']
-       
-    },
-    { 
-    
-        name : 'wordpress',
-        description : 'happy sunday',
-        img : './images/code.jpeg' ,
-        toggleBtn: 'toggleBtn()',
-        detail : `copy and add to each item`,
-        class : 'hidepopup',
-        skills : ['html', 'css','javascript']
-    },
-    { 
-        
-        name : 'javascript',
-        description : 'it is the weekend',
-        // img : './images/database.png' ,
-        toggleBtn: 'toggleBtn()',
-        detail : `copy and add to each item`,
-        class : 'hidepopup',
-        skills : ['html', 'css','javascript','bootsrap']
-       
-    },
-   
-   
-];
-let defaultImage = "./images/hands.jpg"
-let result = ''
-let listItem = document.getElementById('project')
+  {
 
-const desplayProjects = (data)=>{
-    data.map(list => {
-    console.log(list)
-      result += `
+    name: 'calculator',
+    description: 'this is project involves using javascript, html and css to creat a web calculator. That is able to run the web',
+    img: './images/calculator.jpeg',
+    toggleBtn: 'toggleBtn()',
+    detail: 'copy and add to each item',
+    class: 'hidepopup',
+    skills: ['html', 'css', 'javascript'],
+
+  },
+  {
+
+    name: 'wordpress',
+    description: 'happy sunday',
+    img: './images/code.jpeg',
+    toggleBtn: 'toggleBtn()',
+    detail: 'copy and add to each item',
+    class: 'hidepopup',
+    skills: ['html', 'css', 'javascript'],
+  },
+  {
+
+    name: 'javascript',
+    description: 'it is the weekend',
+    img: './images/database.png',
+    toggleBtn: 'toggleBtn()',
+    detail: 'copy and add to each item',
+    class: 'hidepopup',
+    skills: ['html', 'css', 'javascript', 'bootsrap'],
+
+  },
+
+];
+const defaultImage = './images/hands.jpg';
+let result = '';
+const listItem = document.getElementById('project');
+
+const desplayProjects = (data) => {
+  data.map((list) => {
+    result += `
       <li id="projectItem">
       <a href="#"></a>
-      <img src=${list.img && list.img || defaultImage} alt="">
+      <img src=${(list.img && list.img) || defaultImage} alt="">
       <div class="btn">
           <button><i class="fa-brands fa-instagram"></i></button>
           <button><i class="fa-brands fa-facebook"></i></button>
@@ -62,52 +60,46 @@ const desplayProjects = (data)=>{
      
   </a>
   </li>
-                     `
-      return result 
-  });   
-  listItem.innerHTML = result
-  return result
-}
+                     `;
+    return result;
+  });
+  listItem.innerHTML = result;
+  return result;
+};
 
+document.addEventListener('DOMContentLoaded', () => {
+  desplayProjects(items);
+});
 
-  
+const showProject = (id) => {
+  const project = items.find((item) => item.id.toString() === id);
+  const paragraph = document.getElementById(id);
+  const { textContent } = paragraph;
+  paragraph.textContent = textContent === '' ? project.description : '';
+  //  if(paragraph.textContent === ''){
+  //     paragraph.textContent = project.description
+  //  } else{
+  //     paragraph.textContent = ''
+  //  }
 
-document.addEventListener('DOMContentLoaded', ()=> {
-  desplayProjects(items)
-  countingValleys(s,p)
- 
-})
-
-const showProject = (id) =>{
-  
- const project = items.find(item => item.id.toString() === id )
- let paragraph = document.getElementById(id)
- let textContent = paragraph.textContent
- paragraph.textContent = textContent==='' ? project.description : ''
-//  if(paragraph.textContent === ''){
-//     paragraph.textContent = project.description
-//  } else{
-//     paragraph.textContent = ''
-//  }
-
- return project
-}
-let itemsId = '1'
+  return project;
+};
+// let itemsId = 1;
 // for (let i = 0 ; i<items.length ; i++){
 //   items[i].id = itemsId++
 // }
 
-items.forEach(element => {
-   element.id = itemsId++
+items.forEach((element) => {
+  const index = items.indexOf(element);
+  element.id = index + 1;
 });
-console.log(items)
 
 // popupjavascript
-let index = 0
-const popupItems = document.querySelector('.popupbackground')
+let index = 0;
+const popupItems = document.querySelector('.popupbackground');
 const popupDisplay = () => {
-    let popupResult = ''
-    popupResult += `
+  let popupResult = '';
+  popupResult += `
     <div class="popup "  >
         <div class="close-icon">
             <i class="fa-solid fa-xmark mark"  onCLick =toggleBtn()></i>
@@ -135,23 +127,23 @@ const popupDisplay = () => {
             <p>${items[index].detail}</p>
         </div>
     </div>
-    `  
-  popupItems.innerHTML = popupResult
-  return popupResult
-  
-}
+    `;
+  popupItems.innerHTML = popupResult;
+  return popupResult;
+};
 
-const showPopup = (id) =>{
-    index = id-1
-    popupDisplay()
-    popupItems.classList.add('showpopup')
-    
-}
-  
+const showPopup = (id) => {
+  index = id - 1;
+  popupDisplay();
+  popupItems.classList.add('showpopup');
+};
+
 // hide popup
-const toggleBtn = () =>{
-    popupItems.classList.remove('showpopup')
-}
+
+const toggleBtn = () => {
+  popupItems.classList.remove('showpopup');
+};
+
 //   close popup
 //   const togglepopup = document.querySelector('.mark')
 //   let unShow = false
@@ -180,17 +172,11 @@ const toggleBtn = () =>{
 
 // box2
 
-
-
-
-
-
-
 // document.addEventListener("DOMContentLoaded", function() {
-    // This function runs when the DOM (HTML structure) is fully loaded.
+// This function runs when the DOM (HTML structure) is fully loaded.
 
 //     let button = document.getElementById("btn");
-    
+
 //     button.addEventListener("click", function() {
 //         ;
 //     });
@@ -198,13 +184,13 @@ const toggleBtn = () =>{
 // function addStyle() {
 //     let targetElement = document.querySelector('.show');
 //     targetElement.style.display = 'none';
-    
+
 //   }
 
 //   function removeStyle() {
 //     const targetElement = document.querySelector('.show');
 //     targetElement.style.display = 'flex';
-   
+
 //   }
 //   console.log(addStyle)
 // let element = document.getElementById("btn");
@@ -214,4 +200,3 @@ const toggleBtn = () =>{
 
 // Attach the function to the button's click event
 // button.addEventListener('click', btn)
-

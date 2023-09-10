@@ -1,13 +1,14 @@
 const items = [
   {
 
-    name: 'calculator',
+    name: 'counter',
     description: 'this is project involves using javascript, html and css to creat a web calculator. That is able to run the web',
-    img: './images/calculator.jpeg',
+    img: './images/counter.png',
     toggleBtn: 'toggleBtn()',
     detail: 'copy and add to each item',
     class: 'hidepopup',
     skills: ['html', 'css', 'javascript'],
+    source: 'https://github.com/ndashib/counter',
 
   },
   {
@@ -120,7 +121,7 @@ const popupDisplay = () => {
             </div>
             <div class="right">
                 <button>see live<i class="fa-solid fa-eye"></i></button>
-                <button>see source<i class="fa-brands fa-github"></i></button>
+                <a href="${items[index].source}"><button>see source<i class="fa-brands fa-github"></i></button></a>
             </div>
         </div>
         <div class="popup-paragraph">

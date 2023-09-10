@@ -9,6 +9,7 @@ const items = [
     class: 'hidepopup',
     skills: ['html', 'css', 'javascript'],
     source: 'https://github.com/ndashib/counter',
+    liveUrl: '',
 
   },
   {
